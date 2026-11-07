@@ -1555,6 +1555,71 @@
         }
 
         /* ---- EDUCATION ---- */
+        /* ---- CERTIFICATE CARD ---- */
+        .cert-card {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: minmax(0, 300px) 1fr;
+            gap: 22px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px var(--bstyle) var(--border);
+            border-radius: var(--radius-lg);
+            padding: 14px;
+            max-width: 720px;
+        }
+
+        .cert-thumb {
+            display: block;
+            border: 1px solid var(--border-soft);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #fff;
+            transition: transform .25s ease, border-color .25s ease;
+        }
+
+        .cert-thumb:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .cert-thumb img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .cert-info h4 {
+            font-family: var(--font-display);
+            font-size: 17px;
+            margin: 0 0 6px;
+            color: var(--text);
+        }
+
+        .cert-info p {
+            font-size: 13.5px;
+            color: var(--muted);
+            margin: 0 0 14px;
+            line-height: 1.55;
+        }
+
+        .cert-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-actions .btn {
+            padding: 10px 16px;
+            font-size: 11.5px;
+        }
+
+        @media (max-width: 640px) {
+            .cert-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .timeline {
             position: relative;
             padding-left: 34px;
@@ -2335,6 +2400,24 @@
                 <h2 class="sec-title">Education</h2>
             </div>
             <div class="timeline reveal">
+                <div class="t-item">
+                    <div class="t-date">Aug 2026 — Nov 2026</div>
+                    <h3>3-Month Virtual Internship, Data Science</h3>
+                    <p>Unified Mentor Private Limited — Certificate of Completion (issued 05/11/26)</p>
+                    <div class="cert-card">
+                        <a class="cert-thumb" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener" aria-label="Open internship certificate">
+                            <img src="assets/data-science-internship-certificate.png" alt="Unified Mentor Data Science internship certificate" loading="lazy" />
+                        </a>
+                        <div class="cert-info">
+                            <h4>Data Science Intern Certificate</h4>
+                            <p>Successfully completed a 3-month virtual Data Science internship at Unified Mentor.</p>
+                            <div class="cert-actions">
+                                <a class="btn primary" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener">View</a>
+                                <a class="btn" href="assets/data-science-internship-certificate.pdf" download="Sourav-Bhattacharya-Data-Science-Internship-Certificate.pdf">Download PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="t-item">
                     <div class="t-date">Sept 2023 — Aug 2027</div>
                     <h3>B.Tech, Computer Science & Engineering</h3>
