@@ -1556,17 +1556,21 @@
 
         /* ---- EDUCATION ---- */
         /* ---- CERTIFICATE CARD ---- */
-        .cert-card {
-            margin-top: 18px;
+        .cert-list {
             display: grid;
-            grid-template-columns: minmax(0, 300px) 1fr;
+            gap: 22px;
+        }
+
+        .cert-card {
+            display: grid;
+            grid-template-columns: minmax(0, 340px) 1fr;
             gap: 22px;
             align-items: center;
             background: var(--surface);
             border: 1px var(--bstyle) var(--border);
             border-radius: var(--radius-lg);
             padding: 14px;
-            max-width: 720px;
+            max-width: 820px;
         }
 
         .cert-thumb {
@@ -2051,6 +2055,7 @@
                 <a href="#skills">Skills</a>
                 <a href="#projects">My Projects</a>
                 <a href="#education">Education</a>
+                <a href="#certificates">Certificates</a>
                 <a href="#hobbies">Hobbies</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -2067,6 +2072,7 @@
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#education">Education</a>
+                <a href="#certificates">Certificates</a>
             <a href="#hobbies">Hobbies</a>
             <a href="#contact">Contact</a>
         </div>
@@ -2401,24 +2407,6 @@
             </div>
             <div class="timeline reveal">
                 <div class="t-item">
-                    <div class="t-date">Aug 2026 — Nov 2026</div>
-                    <h3>3-Month Virtual Internship, Data Science</h3>
-                    <p>Unified Mentor Private Limited — Certificate of Completion (issued 05/11/26)</p>
-                    <div class="cert-card">
-                        <a class="cert-thumb" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener" aria-label="Open internship certificate">
-                            <img src="assets/data-science-internship-certificate.png" alt="Unified Mentor Data Science internship certificate" loading="lazy" />
-                        </a>
-                        <div class="cert-info">
-                            <h4>Data Science Intern Certificate</h4>
-                            <p>Successfully completed a 3-month virtual Data Science internship at Unified Mentor.</p>
-                            <div class="cert-actions">
-                                <a class="btn primary" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener">View</a>
-                                <a class="btn" href="assets/data-science-internship-certificate.pdf" download="Sourav-Bhattacharya-Data-Science-Internship-Certificate.pdf">Download PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-item">
                     <div class="t-date">Sept 2023 — Aug 2027</div>
                     <h3>B.Tech, Computer Science & Engineering</h3>
                     <p>Mallabhum Institute of Technology, Bishnupur, Bankura, West Bengal</p>
@@ -2438,11 +2426,52 @@
     </section>
 
     <!-- ============================================================
+         CERTIFICATES
+         ============================================================ -->
+    <section id="certificates">
+        <div class="wrap">
+            <div class="sec-head reveal"><span class="sec-num">05</span>
+                <h2 class="sec-title">Certificates</h2>
+            </div>
+            <div class="cert-list reveal">
+                <div class="cert-card">
+                    <a class="cert-thumb" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener" aria-label="Open Data Science Intern — 3-Month Virtual Internship certificate">
+                        <img src="assets/data-science-internship-certificate.png" alt="Unified Mentor Data Science internship certificate" loading="lazy" />
+                    </a>
+                    <div class="cert-info">
+                        <div class="t-date">Aug 2026 — Nov 2026 · Unified Mentor</div>
+                        <h4>Data Science Intern — 3-Month Virtual Internship</h4>
+                        <p>Successfully completed a 3-month virtual Data Science internship at Unified Mentor Private Limited. Issued 05/11/26.</p>
+                        <div class="cert-actions">
+                            <a class="btn primary" href="assets/data-science-internship-certificate.pdf" target="_blank" rel="noopener">View</a>
+                            <a class="btn" href="assets/data-science-internship-certificate.pdf" download="Sourav-Bhattacharya-Data-Science-Internship-Certificate.pdf">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <a class="cert-thumb" href="assets/generative-ai-for-beginners-certificate.pdf" target="_blank" rel="noopener" aria-label="Open Generative AI for Beginners certificate">
+                        <img src="assets/generative-ai-for-beginners-certificate.png" alt="Simplilearn Generative AI for Beginners certificate" loading="lazy" />
+                    </a>
+                    <div class="cert-info">
+                        <div class="t-date">Aug 2025 · Simplilearn SkillUP</div>
+                        <h4>Generative AI for Beginners</h4>
+                        <p>Completed the online course Generative AI for Beginners. Issued 22nd August 2025, certificate code 8835808.</p>
+                        <div class="cert-actions">
+                            <a class="btn primary" href="assets/generative-ai-for-beginners-certificate.pdf" target="_blank" rel="noopener">View</a>
+                            <a class="btn" href="assets/generative-ai-for-beginners-certificate.pdf" download="Sourav-Bhattacharya-Generative-AI-for-Beginners-Certificate.pdf">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
                                                                                                             HOBBIES — new section added right after Education
                                                                                                             ============================================================ -->
     <section id="hobbies">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">05</span>
+            <div class="sec-head reveal"><span class="sec-num">06</span>
                 <h2 class="sec-title">Hobbies</h2>
             </div>
             <div class="hobbies-grid reveal">
@@ -2501,7 +2530,7 @@
                                                                                                                                 ============================================================ -->
     <section id="contact">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">06</span>
+            <div class="sec-head reveal"><span class="sec-num">07</span>
                 <h2 class="sec-title">Contact</h2>
             </div>
             <div class="contact-box reveal">
