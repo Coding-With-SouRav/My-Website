@@ -1554,6 +1554,179 @@
             }
         }
 
+
+        /* ---- CODING ACTIVITY (live heatmaps) ---- */
+        .hm-list {
+            display: grid;
+            gap: 22px;
+        }
+
+        .hm-card {
+            --hm-size: 12px;
+            --hm-gap: 3px;
+            --hm-0: color-mix(in srgb, var(--text) 9%, var(--surface));
+            --hm-1: color-mix(in srgb, var(--accent2) 28%, var(--surface2));
+            --hm-2: color-mix(in srgb, var(--accent2) 52%, var(--surface2));
+            --hm-3: color-mix(in srgb, var(--accent2) 76%, var(--surface2));
+            --hm-4: var(--accent2);
+            background: var(--surface);
+            border: 1px var(--bstyle) var(--border);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            min-width: 0;
+        }
+
+        .hm-head {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 28px;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .hm-head h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .hm-head h3 a {
+            text-decoration: none;
+        }
+
+        .hm-head h3 a:hover {
+            color: var(--accent);
+        }
+
+        .hm-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 20px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .hm-stats b {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .hm-scroll {
+            overflow-x: auto;
+            padding-bottom: 6px;
+        }
+
+        .hm-board {
+            position: relative;
+            width: max-content;
+            padding-top: 20px;
+        }
+
+        .hm-months {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 16px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--muted2);
+        }
+
+        .hm-months span {
+            position: absolute;
+            white-space: nowrap;
+        }
+
+        .hm-grid {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: repeat(7, var(--hm-size));
+            gap: var(--hm-gap);
+        }
+
+        .hm-d {
+            width: var(--hm-size);
+            height: var(--hm-size);
+            border-radius: 3px;
+            background: var(--hm-0);
+        }
+
+        .hm-d.x {
+            visibility: hidden;
+        }
+
+        .hm-d[data-l="1"] { background: var(--hm-1); }
+        .hm-d[data-l="2"] { background: var(--hm-2); }
+        .hm-d[data-l="3"] { background: var(--hm-3); }
+        .hm-d[data-l="4"] { background: var(--hm-4); }
+
+        .hm-grid .hm-d:hover {
+            outline: 1px solid var(--text);
+        }
+
+        .hm-foot {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px 16px;
+            margin-top: 12px;
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            color: var(--muted2);
+        }
+
+        .hm-legend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hm-refresh {
+            background: none;
+            border: 1px var(--bstyle) var(--border);
+            color: var(--text);
+            border-radius: var(--radius);
+            padding: 3px 10px;
+            font: inherit;
+            cursor: pointer;
+            transition: border-color .2s ease, color .2s ease;
+        }
+
+        .hm-refresh:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hm-refresh:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        #hmTip {
+            position: fixed;
+            pointer-events: none;
+            background: var(--surface2);
+            color: var(--text);
+            border: 1px var(--bstyle) var(--border);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: var(--radius);
+            display: none;
+            z-index: 60;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .hm-card {
+                padding: 16px;
+            }
+        }
+
         /* ---- EDUCATION ---- */
         /* ---- CERTIFICATE CARD ---- */
         .cert-list {
@@ -2054,6 +2227,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">My Projects</a>
+                <a href="#activity">Activity</a>
                 <a href="#education">Education</a>
                 <a href="#certificates">Certificates</a>
                 <a href="#hobbies">Hobbies</a>
@@ -2071,6 +2245,7 @@
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#activity">Activity</a>
             <a href="#education">Education</a>
                 <a href="#certificates">Certificates</a>
             <a href="#hobbies">Hobbies</a>
@@ -2398,11 +2573,68 @@
     </section>
 
     <!-- ============================================================
+         CODING ACTIVITY — live GitHub + LeetCode heatmaps
+         ============================================================ -->
+    <section id="activity">
+        <div class="wrap">
+            <div class="sec-head reveal"><span class="sec-num">04</span>
+                <h2 class="sec-title">Coding Activity</h2>
+            </div>
+            <div class="hm-list reveal">
+                <div class="hm-card" id="hm-github">
+                    <div class="hm-head">
+                        <h3><a class="hm-link" target="_blank" rel="noopener">GitHub</a></h3>
+                        <div class="hm-stats">
+                            <span><b class="s-total">–</b> contributions in the past year</span>
+                            <span><b class="s-days">–</b> active days</span>
+                            <span>Max streak <b class="s-max">–</b></span>
+                            <span>Current streak <b class="s-cur">–</b></span>
+                        </div>
+                    </div>
+                    <div class="hm-scroll">
+                        <div class="hm-board"><div class="hm-months"></div><div class="hm-grid"></div></div>
+                    </div>
+                    <div class="hm-foot">
+                        <span class="hm-status">Loading…</span>
+                        <span class="hm-legend">Less
+                            <i class="hm-d"></i><i class="hm-d" data-l="1"></i><i class="hm-d" data-l="2"></i><i class="hm-d" data-l="3"></i><i class="hm-d" data-l="4"></i>
+                            More</span>
+                        <button class="hm-refresh" type="button">Refresh</button>
+                    </div>
+                </div>
+
+                <div class="hm-card" id="hm-leetcode">
+                    <div class="hm-head">
+                        <h3><a class="hm-link" target="_blank" rel="noopener">LeetCode</a></h3>
+                        <div class="hm-stats">
+                            <span><b class="s-total">–</b> submissions in the past year</span>
+                            <span><b class="s-days">–</b> active days</span>
+                            <span>Max streak <b class="s-max">–</b></span>
+                            <span>Current streak <b class="s-cur">–</b></span>
+                        </div>
+                    </div>
+                    <div class="hm-scroll">
+                        <div class="hm-board"><div class="hm-months"></div><div class="hm-grid"></div></div>
+                    </div>
+                    <div class="hm-foot">
+                        <span class="hm-status">Loading…</span>
+                        <span class="hm-legend">Less
+                            <i class="hm-d"></i><i class="hm-d" data-l="1"></i><i class="hm-d" data-l="2"></i><i class="hm-d" data-l="3"></i><i class="hm-d" data-l="4"></i>
+                            More</span>
+                        <button class="hm-refresh" type="button">Refresh</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="hmTip"></div>
+
+    <!-- ============================================================
                                                                                                             EDUCATION
                                                                                                             ============================================================ -->
     <section id="education">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">04</span>
+            <div class="sec-head reveal"><span class="sec-num">05</span>
                 <h2 class="sec-title">Education</h2>
             </div>
             <div class="timeline reveal">
@@ -2430,7 +2662,7 @@
          ============================================================ -->
     <section id="certificates">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">05</span>
+            <div class="sec-head reveal"><span class="sec-num">06</span>
                 <h2 class="sec-title">Certificates</h2>
             </div>
             <div class="cert-list reveal">
@@ -2471,7 +2703,7 @@
                                                                                                             ============================================================ -->
     <section id="hobbies">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">06</span>
+            <div class="sec-head reveal"><span class="sec-num">07</span>
                 <h2 class="sec-title">Hobbies</h2>
             </div>
             <div class="hobbies-grid reveal">
@@ -2530,7 +2762,7 @@
                                                                                                                                 ============================================================ -->
     <section id="contact">
         <div class="wrap">
-            <div class="sec-head reveal"><span class="sec-num">07</span>
+            <div class="sec-head reveal"><span class="sec-num">08</span>
                 <h2 class="sec-title">Contact</h2>
             </div>
             <div class="contact-box reveal">
@@ -3056,6 +3288,197 @@
 
             // Expose controls for debugging if needed
             window.__profileSlideshow = { start: startSlideshow, stop: stopSlideshow, next: nextImage };
+        })();
+    </script>
+
+    <script>
+        /* ============================================================
+           LIVE CODING HEATMAPS — GitHub + LeetCode
+           ============================================================ */
+        (function () {
+            const DAY = 86400;
+            const STEP = 12 + 3; // keep in sync with --hm-size + --hm-gap
+            const fmt = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+            const mfmt = new Intl.DateTimeFormat('en', { month: 'short', timeZone: 'UTC' });
+            const tip = document.getElementById('hmTip');
+
+            async function getJSON(url) {
+                const ctl = new AbortController();
+                const t = setTimeout(() => ctl.abort(), 20000);
+                try {
+                    const r = await fetch(url, { signal: ctl.signal });
+                    if (!r.ok) throw new Error(r.status);
+                    return await r.json();
+                } finally { clearTimeout(t); }
+            }
+
+            /* Generic board. load() -> { unixDaySeconds: count } */
+            function createBoard(cfg) {
+                const card = document.getElementById(cfg.id);
+                if (!card) return;
+                const grid = card.querySelector('.hm-grid');
+                const monthsEl = card.querySelector('.hm-months');
+                const scroll = card.querySelector('.hm-scroll');
+                const statusEl = card.querySelector('.hm-status');
+                const link = card.querySelector('.hm-link');
+                link.href = cfg.url;
+                link.textContent = cfg.title + ' · ' + cfg.username;
+                const set = (cls, v) => { card.querySelector('.' + cls).textContent = v; };
+
+                function render(counts) {
+                    const level = cfg.levelFn(counts);
+                    const now = new Date();
+                    const today = Math.floor(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) / 1000);
+                    let start = today - 364 * DAY;
+                    start -= new Date(start * 1000).getUTCDay() * DAY; // back to Sunday
+
+                    grid.innerHTML = ''; monthsEl.innerHTML = '';
+                    let total = 0, active = 0, run = 0, max = 0, lastMonth = -1, col = 0;
+                    const end = today + (6 - new Date(today * 1000).getUTCDay()) * DAY;
+
+                    for (let ts = start; ts <= end; ts += DAY) {
+                        const dow = new Date(ts * 1000).getUTCDay();
+                        const cell = document.createElement('div');
+                        cell.className = 'hm-d';
+                        if (ts > today) { cell.classList.add('x'); grid.appendChild(cell); if (dow === 6) col++; continue; }
+                        const n = counts[ts] || 0;
+                        cell.dataset.l = level(n);
+                        cell.dataset.tip = n + ' ' + cfg.unit + (n === 1 ? '' : 's') + ' on ' + fmt.format(new Date(ts * 1000));
+                        grid.appendChild(cell);
+
+                        if (ts >= today - 364 * DAY) {
+                            total += n;
+                            if (n > 0) { active++; run++; max = Math.max(max, run); } else run = 0;
+                        }
+                        if (dow === 0) {
+                            const m = new Date(ts * 1000).getUTCMonth();
+                            if (m !== lastMonth) {
+                                const s = document.createElement('span');
+                                s.textContent = mfmt.format(new Date(ts * 1000));
+                                s.style.left = col * STEP + 'px';
+                                monthsEl.appendChild(s);
+                                lastMonth = m;
+                            }
+                        }
+                        if (dow === 6) col++;
+                    }
+                    // current streak: today may still be empty, so count from yesterday
+                    let cur = 0, t = today;
+                    if (!counts[t]) t -= DAY;
+                    while (counts[t] > 0) { cur++; t -= DAY; }
+
+                    set('s-total', total); set('s-days', active); set('s-max', max); set('s-cur', cur);
+                    scroll.scrollLeft = scroll.scrollWidth;
+                }
+
+                const timeStr = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                async function refresh() {
+                    statusEl.textContent = 'Updating…';
+                    try {
+                        const counts = await cfg.load();
+                        try { localStorage.setItem(cfg.cacheKey, JSON.stringify(counts)); } catch (e) { }
+                        render(counts);
+                        statusEl.textContent = 'Updated ' + timeStr();
+                    } catch (e) {
+                        statusEl.textContent = "Couldn't reach " + cfg.title + '. Showing saved data.';
+                    }
+                }
+
+                // cached data first, then live
+                try { const c = localStorage.getItem(cfg.cacheKey); if (c) render(JSON.parse(c)); } catch (e) { }
+                if (!grid.children.length) render({});
+                refresh();
+                setInterval(refresh, cfg.refreshMs);
+                document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+                card.querySelector('.hm-refresh').addEventListener('click', refresh);
+
+                grid.addEventListener('mousemove', e => {
+                    const t = e.target.dataset && e.target.dataset.tip;
+                    if (!t) { tip.style.display = 'none'; return; }
+                    tip.textContent = t; tip.style.display = 'block';
+                    tip.style.left = e.clientX + 12 + 'px'; tip.style.top = e.clientY - 32 + 'px';
+                });
+                grid.addEventListener('mouseleave', () => tip.style.display = 'none');
+            }
+
+            /* ---------- GitHub ---------- */
+            const GH = 'Coding-With-SouRav';
+            const ghSources = [
+                async () => {
+                    const j = await getJSON('https://github-contributions-api.jogruber.de/v4/' + GH + '?y=last');
+                    return j.contributions.map(c => ({ date: c.date, count: c.count }));
+                },
+                async () => {
+                    const j = await getJSON('https://github-contributions-api.deno.dev/' + GH + '.json');
+                    return j.contributions.flat().map(c => ({ date: c.date, count: c.contributionCount }));
+                }
+            ];
+            async function loadGitHub() {
+                for (const src of ghSources) {
+                    try {
+                        const d = await src();
+                        if (Array.isArray(d) && d.length) {
+                            const counts = {};
+                            for (const c of d) counts[Date.parse(c.date + 'T00:00:00Z') / 1000] = c.count;
+                            return counts;
+                        }
+                    } catch (e) { /* next source */ }
+                }
+                throw new Error('all sources failed');
+            }
+
+            /* ---------- LeetCode ---------- */
+            const LC = '_SouRav_8159';
+            const lcSources = [
+                async () => getJSON('https://alfa-leetcode-api.onrender.com/' + LC + '/calendar'),
+                async () => getJSON('https://leetcode-api-faisalshohag.vercel.app/' + LC),
+                async () => {
+                    const q = 'query($u:String!){matchedUser(username:$u){userCalendar{submissionCalendar}}}';
+                    const r = await fetch('https://corsproxy.io/?url=' + encodeURIComponent('https://leetcode.com/graphql'), {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ query: q, variables: { u: LC } })
+                    });
+                    if (!r.ok) throw new Error(r.status);
+                    const j = await r.json();
+                    return j.data.matchedUser.userCalendar;
+                }
+            ];
+            function normalizeLC(raw) {
+                let cal = raw && raw.submissionCalendar;
+                if (typeof cal === 'string') cal = JSON.parse(cal);
+                if (!cal || typeof cal !== 'object') throw new Error('bad data');
+                const counts = {};
+                for (const k in cal) {
+                    const day = Math.floor(+k / DAY) * DAY;
+                    counts[day] = (counts[day] || 0) + cal[k];
+                }
+                return counts;
+            }
+            async function loadLeetCode() {
+                for (const src of lcSources) {
+                    try { return normalizeLC(await src()); } catch (e) { /* next source */ }
+                }
+                throw new Error('all sources failed');
+            }
+
+            createBoard({
+                id: 'hm-github', title: 'GitHub', username: GH, url: 'https://github.com/' + GH,
+                unit: 'contribution', cacheKey: 'gh-cal-v2-' + GH, refreshMs: 10 * 60 * 1000,
+                load: loadGitHub,
+                // buckets scaled to the busiest day
+                levelFn: counts => {
+                    const max = Math.max(1, ...Object.values(counts));
+                    return n => n <= 0 ? 0 : n <= max * 0.25 ? 1 : n <= max * 0.5 ? 2 : n <= max * 0.75 ? 3 : 4;
+                }
+            });
+
+            createBoard({
+                id: 'hm-leetcode', title: 'LeetCode', username: LC, url: 'https://leetcode.com/u/' + LC + '/',
+                unit: 'submission', cacheKey: 'lc-cal-v2-' + LC, refreshMs: 5 * 60 * 1000,
+                load: loadLeetCode,
+                levelFn: () => n => n <= 0 ? 0 : n <= 2 ? 1 : n <= 5 ? 2 : n <= 9 ? 3 : 4
+            });
         })();
     </script>
 
